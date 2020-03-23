@@ -1,0 +1,237 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+#ip1 {
+  box-sizing: border-box;
+  
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+.para{
+  font-style: italic;
+  font-weight:bold;
+  color:black;
+}
+
+.fr{
+  margin-top: 50px;
+  margin-left:100px;
+  padding-top: 0%;
+  position: relative;
+}
+
+.b1{
+  position:absolute;
+  bottom:-200px;
+  left:600px;
+}
+.b2{
+  position:absolute;
+  bottom:-200px;
+  left:800px;
+}
+.frm{
+ 
+  margin-top:-175px;
+  margin-left:650px;
+  padding-top: 0%;
+  position: relative;
+}
+
+.frm1{
+ 
+  margin-top:-175px;
+  margin-left:1150px;
+  padding-top: 0%;
+  position: relative;
+}
+.t{
+  text-align:center;
+  color:white;
+  position: relative;
+  top:50px;
+  font-weight: 100;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  
+}
+
+.container{
+  width:100%;
+  height:200px;
+  background-image: url(sky2.png);
+  background-size: cover;
+}
+
+.desc{
+  color:white;
+  position: relative;
+  left:50px;
+}
+
+.ls{
+  float:left;
+  width:25%;
+}
+
+.ls a.active{
+  background-color: darkblue;
+}
+.l1{
+  
+  list-style-type: none;
+  position: relative;
+  
+  width: 100%;
+  top:0px;
+  margin: 0px;
+  padding: 0;
+  overflow: hidden;
+  background-color:black;
+}
+.u {
+  list-style-type: none;
+  position: relative;
+  top:90px;
+  margin: 0px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.ll {
+  float: left;
+  width:25%;
+  
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color:red;
+}
+.wrapper {
+  width: 2000px;
+  margin: 10px auto;
+
+}
+.banner_body {
+  position: relative;
+  left:50px;
+  right:20px;
+  width: 1400px; 
+  height: 300px; 
+  background-image: url(sky.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner_folds {
+  width: 1400px; 
+  height: 20px;
+}
+.banner_fold_left {
+  position: relative;
+  left:50px;
+  width: 0px; 
+  height: 0; 
+  border: 20px solid transparent; 
+  border-top: 0; 
+  border-right-color: #722; 
+  margin-left: -20px; 
+  float: left;
+}
+.banner_fold_right {
+  position:relative;
+  right:-50px;
+  width: 0px; 
+  height: 0px; 
+  border: 20px solid transparent; 
+  border-top: 0; 
+  border-left-color: #722; 
+  margin-right: -20px; 
+  float: right;
+}
+.banner_shadow {
+  position: relative;
+  left:50px;
+  height: 600px; 
+  width: 1350px; 
+  background-image: url(sky.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  margin: auto;
+}
+.content {
+  width: 330px; 
+  padding: 0px 15px; 
+  margin: auto; 
+  background-color: #FFF   
+}
+
+/*.mystyle{
+  
+  background-color:#FF6347;
+  border-radius: 25px;
+  background-image: url(sky.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 5px solid #73AD21;
+  padding: 20px; 
+  width: 1470px;
+  height: 550px;  
+}*/
+#ip1{
+  border-radius: 25px;
+
+  border: 5px solid #73AD21;
+  padding: 20px; 
+}
+#ip2{
+  border-radius: 25px;
+  border: 5px solid #73AD21;
+  padding: 20px; 
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
