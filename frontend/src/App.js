@@ -9,9 +9,9 @@ import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
 import DeleteIcon from '@material-ui/icons/Delete';
 //import {BrowserRouter as Router} from 'react-router-dom';
-
+//import axios from 'axios'
 import history from './history';
-
+import axios from 'axios'
 
 
 //import routes from './routes';
@@ -19,6 +19,8 @@ import about from './about.js';
 import {Link} from 'react-router-dom';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
+const src = ' '
+const dst = ' '
 
 
 class App extends React.Component {
@@ -28,8 +30,12 @@ class App extends React.Component {
       username: '',
       age: null,
       errormessage: '',
+      source: ' ',
+      dest: ' ',
       startDate:new Date(),
       endDate:new Date(),
+      cls: ' ',
+      pas: ' ',
       location_start:[
         {
           id:0,
@@ -100,6 +106,7 @@ class App extends React.Component {
       ]
     };
   }
+  
   myChangeHandler = (event) => {
     
     /* let nam = event.target.name;
@@ -126,6 +133,34 @@ class App extends React.Component {
       }
   } */
   }
+  handleFormData = ()=>{
+    //this.setState({source:s})
+    //this.setState({dest:d})
+    console.log("Source:"+this.state.source)
+    console.log("Dest:"+this.state.dest)
+    console.log("Start Date:"+this.state.startDate)
+    console.log("End Date:"+this.state.endDate)
+    console.log("Class:"+this.state.cls)
+    console.log("Passengers:"+this.state.pas)
+    //src = this.state.source
+    //dst = this.state.dest
+    const data = {
+      source: this.state.source,
+      dest: this.state.dest,
+      travel_time:4,
+    }
+    
+    axios.post("http://localhost:3001/api/flight",data)
+    .then(data=>{
+      console.log(data)
+    })
+    .catch(error=>{
+      console.log(error.response)
+    })
+    history.push('/api/flight')
+    //console.log("Dest:"+this.state.dest)
+    
+  }
   handleChangeStart = date =>{
     this.setState({
       startDate:date
@@ -139,7 +174,7 @@ class App extends React.Component {
     //const value = date.format();
   }
 
-  resetThenSet = (id,key) =>{
+  resetThenSetStart = (id,key) =>{
     let temp = JSON.parse(JSON.stringify(this.state[key]))
     temp.forEach(item => item.selected = false);
     temp[id].selected = true;
@@ -152,7 +187,63 @@ class App extends React.Component {
       return item.title === temp[id].title
     })
     //temp[id].title =val[0].title
-    //console.log(val[0].title)
+    //console.log(val)
+    this.setState({source:val[0].title})
+    
+   
+  }
+  resetThenSetEnd = (id,key) =>{
+    let temp = JSON.parse(JSON.stringify(this.state[key]))
+    temp.forEach(item => item.selected = false);
+    temp[id].selected = true;
+    this.setState({
+      [key]: temp
+
+    })
+    
+    var val = this.state.location_end.filter(function(item){
+      return item.title === temp[id].title
+    })
+    //temp[id].title =val[0].title
+    //console.log(val)
+    this.setState({dest:val[0].title})
+    
+   
+  }
+  resetThenSetClass = (id,key) =>{
+    let temp = JSON.parse(JSON.stringify(this.state[key]))
+    temp.forEach(item => item.selected = false);
+    temp[id].selected = true;
+    this.setState({
+      [key]: temp
+
+    })
+    
+    var val = this.state.class.filter(function(item){
+      return item.title === temp[id].title
+    })
+    //temp[id].title =val[0].title
+    //console.log(val)
+    this.setState({cls:val[0].title})
+    
+   
+  }
+  resetThenSetPass = (id,key) =>{
+    let temp = JSON.parse(JSON.stringify(this.state[key]))
+    temp.forEach(item => item.selected = false);
+    temp[id].selected = true;
+    this.setState({
+      [key]: temp
+
+    })
+    
+    var val = this.state.pass.filter(function(item){
+      return item.title === temp[id].title
+    })
+    //temp[id].title =val[0].title
+    //console.log(val)
+    this.setState({pas:val[0].title})
+    
    
   }
   
@@ -195,14 +286,14 @@ class App extends React.Component {
       <form>
       <h1>Hello {this.state.username} {this.state.age}</h1>
       <p class = "para">FROM:</p>
-      <Dropdown titleHelper = "Location" title = "Select Source" list = {this.state.location_start} resetThenSet = {this.resetThenSet}/>
+      <Dropdown titleHelper = "Location" title = "Select Source" list = {this.state.location_start} resetThenSet = {this.resetThenSetStart}/>
       
       
       </form>
 
       <form>
       <p class ="para">TO:</p>
-      <Dropdown titleHelper = "Location" title = "Select Destination" list = {this.state.location_end} resetThenSet = {this.resetThenSet}/>
+      <Dropdown titleHelper = "Location" title = "Select Destination" list = {this.state.location_end} resetThenSet = {this.resetThenSetEnd}/>
       </form>
       </div>
       <div class = "frm">
@@ -221,12 +312,12 @@ class App extends React.Component {
       <form>
       <h1>Hello {this.state.username} {this.state.age}</h1>
       <p class = "para">CLASS:</p>
-      <Dropdown titleHelper = "Location" title = "Select Class" list = {this.state.class} resetThenSet = {this.resetThenSet}/>
+      <Dropdown titleHelper = "Location" title = "Select Class" list = {this.state.class} resetThenSet = {this.resetThenSetClass}/>
       </form>
 
       <form>
       <p class = "para">PASSENGERS:</p>
-      <Dropdown titleHelper = "Location" title = "Select Number of Passengers" list = {this.state.pass} resetThenSet = {this.resetThenSet}/>
+      <Dropdown titleHelper = "Location" title = "Select Number of Passengers" list = {this.state.pass} resetThenSet = {this.resetThenSetPass}/>
       
       </form>
       </div>
@@ -234,7 +325,7 @@ class App extends React.Component {
       <div class = "b1">
       
       
-      <Button variant = "contained" onClick={() => history.push('/Products')} endIcon = {<SendIcon/>} color = "primary"  size = "large">SUBMIT</Button>{' '}
+      <Button variant = "contained" onClick={this.handleFormData} endIcon = {<SendIcon/>} color = "primary"  size = "large">SUBMIT</Button>{' '}
       
       </div>
       <div class = "b2">
@@ -247,7 +338,11 @@ class App extends React.Component {
       
     );
   }
+  
 }
+
+
 
 //ReactDOM.render(<MyForm />, document.getElementById('root'));
 export default App;
+//onClick={() => history.push('/api/flightinsert')}
