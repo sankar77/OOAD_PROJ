@@ -48,7 +48,15 @@ class App extends React.Component {
           title:'San Francisco',
           selected:false,
           key:'location_start'
-        }
+        },
+        
+          {
+            id:2,
+            title:'Chicago',
+            selected:false,
+            key:'location_end'
+          }
+        
       ],
       location_end:[
         {
@@ -60,6 +68,12 @@ class App extends React.Component {
         {
           id:1,
           title:'San Francisco',
+          selected:false,
+          key:'location_end'
+        },
+        {
+          id:2,
+          title:'Chicago',
           selected:false,
           key:'location_end'
         }
@@ -133,6 +147,21 @@ class App extends React.Component {
       }
   } */
   }
+  handleRegistration = ()=>{
+    history.push('/registration')
+  }
+  valid = (src,dst,st_dt,en_dt,cl,ps)=>{
+    // if(!src){
+    //   return false;
+    
+    // }
+    if(src!=' ' &&dst!=' '&&src!=dst&&new Date(st_dt)!=new Date(en_dt) && new Date(st_dt)<new Date(en_dt)&& cl!=' '&&ps!=' '){
+      return true;
+    }
+
+    else
+    return false;
+  }
   handleFormData = ()=>{
     //this.setState({source:s})
     //this.setState({dest:d})
@@ -142,6 +171,8 @@ class App extends React.Component {
     console.log("End Date:"+this.state.endDate)
     console.log("Class:"+this.state.cls)
     console.log("Passengers:"+this.state.pas)
+
+    if(this.valid(this.state.source,this.state.dest,this.state.startDate,this.state.endDate,this.state.cls,this.state.pas)){
     //src = this.state.source
     //dst = this.state.dest
     const data = {
@@ -159,7 +190,10 @@ class App extends React.Component {
     })
     history.push('/api/flight')
     //console.log("Dest:"+this.state.dest)
-    
+  }
+  else{
+    alert("Please enter the required data to start looking for flights")
+  }
   }
   handleChangeStart = date =>{
     this.setState({
@@ -274,8 +308,8 @@ class App extends React.Component {
       <div class="banner_shadow">
         <ul class = "l1">
           <li class = "ls"><a class="active" href="#home">BOOK TRIP</a></li>
-          <li class= "ls"><a href="#news">CHECK IN</a></li>
-          <li class = "ls"><a href="#contact">MANAGE BOOKING</a></li>
+          <li class= "ls"><a href="Check-in">CHECK IN</a></li>
+          <li class = "ls"><a href="Manage-Booking">MANAGE BOOKING</a></li>
           <li class = "ls"><a href="#about">FLIGHT SCHEDULE</a></li>
         </ul>
        
@@ -329,8 +363,12 @@ class App extends React.Component {
       
       </div>
       <div class = "b2">
-      <Button  variant = "contained" color = "danger" endIcon = {<DeleteIcon/>} size = "large">RESET</Button>{' '}
+      <Button  variant = "contained" color = "secondary" endIcon = {<DeleteIcon/>} size = "large">RESET</Button>{' '}
       </div>
+      <div class = "top">
+        <Button variant = "contained" onClick = {this.handleRegistration} color = "primary" size = "large" endIcon = {<SendIcon/>}>REGISTER</Button>
+      </div>
+
 
       
       </div>
