@@ -21,7 +21,7 @@ import Paper from '@material-ui/core/Paper';
 import {DropdownMultiple, Dropdown} from 'reactjs-dropdown-component';
 import "react-datepicker/dist/react-datepicker.css";
 import SendIcon from '@material-ui/icons/Send';
-import Alert from '@material-ui/lab/Alert';
+//import Alert from '@material-ui/lab/Alert';
 import history from './history'
 //import socketIOClient from 'socket.io-client'
 
@@ -33,10 +33,10 @@ class CustomerCheckin extends Component{
             //columns:[],
             isCheckedIn:false,
             //food_option:" ",
-            
+
         }
     }
-    
+
     /*componentDidMount=  ()=>{
         console.log("Data")
         console.log(api1.get('/flight'))
@@ -105,17 +105,17 @@ class CustomerCheckin extends Component{
     //   temp[id].selected = true;
     //   this.setState({
     //     [key]: temp
-  
+
     //   })
-      
+
     //   var val = this.state.food_option.filter(function(item){
     //     return item.title === temp[id].title
     //   })
     //   //temp[id].title =val[0].title
     //   //console.log(val)
     //   this.setState({food_option:val[0].title})
-      
-     
+
+
     // }
     // componentDidMount = async()=>{
     //     await axios({
@@ -174,7 +174,7 @@ class CustomerCheckin extends Component{
       }
     renderData(){
         return <div>Page Loaded</div>;
-        
+
         // const columns = [
         //     {
         //         Header: 'ID',
@@ -202,7 +202,7 @@ class CustomerCheckin extends Component{
         //     showTable = false
         // }
         // return(
-        
+
         // <div>
         // {showTable && (
         //     <ReactTable
@@ -216,7 +216,7 @@ class CustomerCheckin extends Component{
         // )}
         // </div>
         // )
-        
+
     }
     /*componentDidMount = async() =>{
         fetch("http://localhost:3001/api/flight")
@@ -226,7 +226,7 @@ class CustomerCheckin extends Component{
             console.log(json)
         })
         this.setState({isloading:true})
-      */  
+      */
 
         /*await api.getflight().then(flights=>{
             this.setState({
@@ -245,14 +245,14 @@ class CustomerCheckin extends Component{
         .then((response)=>{
           const data = response.data;
           this.setState({posts:data});
-    
+
           console.log("Data received");
         })
         .catch(()=>{
           alert("error retrieving data");
         })
     */
-      
+
     render(){
         //const{travel_list,isloading} = this.state
         console.log("Travel_List")
@@ -280,7 +280,7 @@ class CustomerCheckin extends Component{
                     <li class = "ll"><a href="#contact">Contact</a></li>
                     <li class = "ll"><a href="#about">About</a></li>
                   </ul>
-          
+
                 </div >
                     <div class = "sampletable">
                     <TableContainer component={Paper}>
@@ -291,40 +291,40 @@ class CustomerCheckin extends Component{
                                   <TableHead class='l1'>
                                     <TableRow class='l2'>
                                       <StyledTableCell >Check In Status</StyledTableCell>
-                                      
+
                                     </TableRow>
                                   </TableHead>
                                   <TableBody>
                                     {this.state.travel_list.map((row) => (
-                                        
+
                                       <TableRow key={row['checkin_status']}>
                                         <StyledTableCell component="th" scope="row">
                                           {row['checkin_status']==false ?"Not CheckedIn":"Already Checked In"}
                                         </StyledTableCell>
-                                        
+
                                       </TableRow>
                                     ))}
                                   </TableBody>
-          
+
                                 </Table>
-          
+
                               </TableContainer>
                               </div>
                               {/* <div class = "it">
                               <Dropdown titleHelper = "Food Options" title = "Select the Food Option" list = {this.state.isCheckedIn} resetThenSet = {this.resetThenSetFoodOption}/>
                               </div> */}
                               <div class = "b1">
-      
-      
+
+
                                 <Button variant = "contained" onClick={this.handleFormData} endIcon = {<SendIcon/>} color = "primary"  size = "large">CHECKIN</Button>{' '}
-      
+
                                 </div>
           </div>
                   )
         // return (
         //     <div>
         //         {this.state.isloading?this.renderLoading():this.renderData()}
-                
+
         // </div>
         // )
     }

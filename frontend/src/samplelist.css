@@ -1,0 +1,47 @@
+.sampletable{
+  margin-top: 10px;
+  /* position:relative; */
+  margin-left:auto;
+}
+.total{
+  width:100%;
+}
+.container{
+  width:100%;
+  height:200px;
+  background-image: url(sky2.png);
+  background-size: cover;
+}
+
+.t{
+  text-align:center;
+  color:white;
+  position:relative;
+  top:50px;
+  font-weight: 100;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+
+}
+.u {
+  list-style-type: none;
+  position: relative;
+  top:90px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.ll {
+  float: left;
+  width:25%;
+
+}
+
+.l2{
+  font-size: 50;
+}
+
+.l1{
+  background-color: orange;
+}

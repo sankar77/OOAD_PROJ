@@ -8,7 +8,6 @@
   position:absolute;
 
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -16,7 +15,7 @@
 
 #ip1 {
   box-sizing: border-box;
-  
+
   background-position: 14px 12px;
   background-repeat: no-repeat;
   font-size: 16px;
@@ -48,7 +47,7 @@
   left:800px;
 }
 .frm{
- 
+
   margin-top:-175px;
   margin-left:650px;
   padding-top: 0%;
@@ -56,7 +55,7 @@
 }
 
 .frm1{
- 
+
   margin-top:-175px;
   margin-left:1150px;
   padding-top: 0%;
@@ -69,7 +68,7 @@
   top:50px;
   font-weight: 100;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-  
+
 }
 
 .container{
@@ -84,6 +83,9 @@
   position: relative;
   left:50px;
 }
+.ll a.active{
+  background-color:darkblue;
+}
 
 .ls{
   float:left;
@@ -94,10 +96,10 @@
   background-color: darkblue;
 }
 .l1{
-  
+
   list-style-type: none;
   position: relative;
-  
+
   width: 100%;
   top:0px;
   margin: 0px;
@@ -118,7 +120,7 @@
 .ll {
   float: left;
   width:25%;
-  
+
 }
 
 li a {
@@ -141,77 +143,77 @@ li a:hover {
   position: relative;
   left:50px;
   right:20px;
-  width: 1400px; 
-  height: 300px; 
+  width: 1400px;
+  height: 300px;
   background-image: url(sky.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
 .banner_folds {
-  width: 1400px; 
+  width: 1400px;
   height: 20px;
 }
 .banner_fold_left {
   position: relative;
   left:50px;
-  width: 0px; 
-  height: 0; 
-  border: 20px solid transparent; 
-  border-top: 0; 
-  border-right-color: #722; 
-  margin-left: -20px; 
+  width: 0px;
+  height: 0;
+  border: 20px solid transparent;
+  border-top: 0;
+  border-right-color: #722;
+  margin-left: -20px;
   float: left;
 }
 .banner_fold_right {
   position:relative;
   right:-50px;
-  width: 0px; 
-  height: 0px; 
-  border: 20px solid transparent; 
-  border-top: 0; 
-  border-left-color: #722; 
-  margin-right: -20px; 
+  width: 0px;
+  height: 0px;
+  border: 20px solid transparent;
+  border-top: 0;
+  border-left-color: #722;
+  margin-right: -20px;
   float: right;
 }
 .banner_shadow {
   position: relative;
   left:50px;
-  height: 600px; 
-  width: 1350px; 
+  height: 600px;
+  width: 1350px;
   background-image: url(sky.png);
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
   margin: auto;
 }
 .content {
-  width: 330px; 
-  padding: 0px 15px; 
-  margin: auto; 
-  background-color: #FFF   
+  width: 330px;
+  padding: 0px 15px;
+  margin: auto;
+  background-color: #FFF
 }
 
 /*.mystyle{
-  
+
   background-color:#FF6347;
   border-radius: 25px;
   background-image: url(sky.png);
   background-repeat: no-repeat;
   background-size: cover;
   border: 5px solid #73AD21;
-  padding: 20px; 
+  padding: 20px;
   width: 1470px;
-  height: 550px;  
+  height: 550px;
 }*/
 #ip1{
   border-radius: 25px;
 
   border: 5px solid #73AD21;
-  padding: 20px; 
+  padding: 20px;
 }
 #ip2{
   border-radius: 25px;
   border: 5px solid #73AD21;
-  padding: 20px; 
+  padding: 20px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

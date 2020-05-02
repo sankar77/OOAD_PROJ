@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import './App.css';
 import './Register.css';
 //import './Checkin.css';
-import MaterialUIForm from  'react-material-ui-form';
+// import MaterialUIForm from  'react-material-ui-form';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
@@ -142,24 +142,24 @@ class Register extends Component{
         //console.log("entered")
         //const classes = useStyles();
         return(
-            
-            
+
+
 //            <div>Welcome</div>
-            
+
     <div>
         <div class = "container">
-      <h1 class = "t">Singapore Airlines</h1>
+      <h1 class = "t">Flight Rider</h1>
       <ul class= "u">
         <li class = "ll"><a class="active" href="#home">Home</a></li>
         <li class = "ll"><a href="#news">News</a></li>
         <li class = "ll"><a href="#contact">Contact</a></li>
         <li class = "ll"><a href="#about">About</a></li>
       </ul>
-      
+
     </div>
     <div class="wrapper">
-      <div class="banner_body"><h1 class = "desc">Travel Seamlessly with the Singapore Air App</h1>
-        
+      <div class="banner_body"><h1 class = "desc">Travel Seamlessly with the Flight Rider App</h1>
+
         <div class = "another"></div>
       </div>
   <div class="banner_folds">
@@ -172,49 +172,50 @@ class Register extends Component{
           <li class = "ls"><a href="#contact">MANAGE BOOKING</a></li>
           <li class = "ls"><a href="#about">FLIGHT SCHEDULE</a></li>
         </ul>
-       
+
       </div>
       </div>
       </div>
       <div class = "mystyle">
       <div class = "fr">
-      
+
       {/* <h1>Hello {this.state.age}</h1> */}
-      <div class = "ref_form">
-          
+      <div class="ref_form1">
+      <div class = "ref_form" >
+
         <form noValidate autoComplete = "off">
           <div>
           <h1>FIRST NAME:</h1>
-          <Input placeholder="First Name" onChange = {this.handleFirstNameChange} inputProps={{ 'aria-label': 'description' }} />
+          <Input placeholder="First Name"  onChange = {this.handleFirstNameChange} align='center' inputProps={{ 'aria-label': 'description', color: 'white'}} style={{ flex: 1, margin: '0 20px 0 0', color: 'white'}} />
         {/* <TextField id="standard-search" onChange = {this.handleInputChange} label="Search field" type="search" /> */}
         </div>
         <div>
         <h1>LAST NAME:</h1>
-          <Input placeholder="Last Name" onChange = {this.handleLastNameChange} inputProps={{ 'aria-label': 'description' }} />
+          <Input placeholder="Last Name" onChange = {this.handleLastNameChange} inputProps={{ 'aria-label': 'description' }} style={{ flex: 1, margin: '0 20px 0 0', color: 'white'}}/>
           </div>
 
-          
-        
+
+
           <div>
-        <h1>YEAR OF BIRTH</h1>
-          <Input placeholder="Birth Year" onChange = {this.handleYearChange} inputProps={{ 'aria-label': 'description' }} />
+        <h1 align = "left">YEAR OF BIRTH</h1>
+          <Input placeholder="Birth Year" onChange = {this.handleYearChange} inputProps={{ 'aria-label': 'description' }} style={{ flex: 1, margin: '0 20px 0 0', color: 'white'}} />
           </div>
           <div>
         <h1>EMAIL:</h1>
-          <Input placeholder="Email" onChange = {this.handleEmailChange} inputProps={{ 'aria-label': 'description' }} />
+          <Input placeholder="Email" onChange = {this.handleEmailChange} inputProps={{ 'aria-label': 'description' }} style={{ flex: 1, margin: '0 20px 0 0', color: 'white'}}/>
           </div>
           <div>
         <h1>PHONE NUMBER:</h1>
-          <Input placeholder="Phone Number" onChange = {this.handlePhoneChange} inputProps={{ 'aria-label': 'description' }} />
+          <Input placeholder="Phone Number" onChange = {this.handlePhoneChange} inputProps={{ 'aria-label': 'description' }} style={{ flex: 1, margin: '0 20px 0 0', color: 'white'}}/>
           </div>
 
           <div>
         <h1>PREFERRED USERNAME:</h1>
-          <Input placeholder="Username" onChange = {this.handleUserNameChange} inputProps={{ 'aria-label': 'description' }} />
+          <Input placeholder="Username" onChange = {this.handleUserNameChange} inputProps={{ 'aria-label': 'description' }} style={{ flex: 1, margin: '0 20px 0 0', color: 'white'}}/>
           </div>
           <div>
         <h1>PASSWORD:</h1>
-          <Input placeholder="Password" type = "password" onChange = {this.handlePasswordChange} inputProps={{ 'aria-label': 'description' }} />
+          <Input placeholder="Password" type = "password" onChange = {this.handlePasswordChange} inputProps={{ 'aria-label': 'description' }} style={{ flex: 1, margin: '0 20px 0 0', color: 'white'}}/>
           </div>
         {/* <FormControl variant="outlined">
         <InputLabel htmlFor="component-outlined">Name</InputLabel>
@@ -222,15 +223,13 @@ class Register extends Component{
       </FormControl> */}
             </form>
         </div>
-        <div class = "b1">
+        <div class = "b3">
         <Button variant = "contained" onClick={this.handleFormData} endIcon = {<SendIcon/>} color = "primary"  size = "large">SUBMIT</Button>{' '}
         </div>
-        <div class = "b3">
-        <Button variant = "contained" onClick={this.getData} endIcon = {<SendIcon/>} color = "primary"  size = "large">FETCH</Button>{' '}
+
         </div>
-      
-      
-      
+
+
 
       {/* <form>
       <p class ="para">TO:</p>
@@ -243,7 +242,6 @@ class Register extends Component{
       <p class = "para">DEPART DATE:</p>
       <DatePicker titleHelper = "Location" title = "Select Departure Date" selected = {this.state.startDate} onChange = {this.handleChangeStart}/>
       </form>
-
       <form>
       <p class = "para">RETURN DATE:</p>
       <DatePicker titleHelper = "Location" title = "Select Return Date" selected = {this.state.endDate} onChange = {this.handleChangeEnd}/>
@@ -255,14 +253,13 @@ class Register extends Component{
       <p class = "para">CLASS:</p>
       <Dropdown titleHelper = "Location" title = "Select Class" list = {this.state.class} resetThenSet = {this.resetThenSetClass}/>
       </form>
-
       <form>
       <p class = "para">PASSENGERS:</p>
       <Dropdown titleHelper = "Location" title = "Select Number of Passengers" list = {this.state.pass} resetThenSet = {this.resetThenSetPass}/>
-      
+
       </form>
       </div> */}
-      </div> 
+      </div>
       </div>
       </div>
         )

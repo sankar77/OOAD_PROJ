@@ -5,7 +5,7 @@ import {DropdownMultiple, Dropdown} from 'reactjs-dropdown-component';
 import "react-datepicker/dist/react-datepicker.css";
 import './App.css';
 import './Managebooking.css';
-import MaterialUIForm from  'react-material-ui-form';
+// import MaterialUIForm from  'react-material-ui-form';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
@@ -49,7 +49,7 @@ class Managebooking extends Component{
         }
         console.log(typeof(this.state.ref_num))
         console.log("Reference num:")
-        
+
         console.log(this.state.ref_num)
 
         axios.post("http://localhost:3001/api/customer",data)
@@ -72,10 +72,10 @@ class Managebooking extends Component{
         //console.log("entered")
         //const classes = useStyles();
         return(
-            
-            
+
+
 //            <div>Welcome</div>
-            
+
     <div>
         <div class = "container">
       <h1 class = "t">Singapore Airlines</h1>
@@ -85,11 +85,11 @@ class Managebooking extends Component{
         <li class = "ll"><a href="#contact">Contact</a></li>
         <li class = "ll"><a href="#about">About</a></li>
       </ul>
-      
+
     </div>
     <div class="wrapper">
       <div class="banner_body"><h1 class = "desc">Travel Seamlessly with the Singapore Air App</h1>
-        
+
         <div class = "another"></div>
       </div>
   <div class="banner_folds">
@@ -98,17 +98,17 @@ class Managebooking extends Component{
       <div class="banner_shadow">
         <ul class = "l1">
           <li class = "ls"><a href="/">BOOK TRIP</a></li>
-          <li class= "ls"><a href="Checkin">CHECK IN</a></li>
+          <li class= "ls"><a href="Check-in">CHECK IN</a></li>
           <li class = "ls"><a class = "active" href="#">MANAGE BOOKING</a></li>
           <li class = "ls"><a href="#about">FLIGHT SCHEDULE</a></li>
         </ul>
-       
+
       </div>
       </div>
       </div>
      <div class = "mystyle">
       <div class = "fr">
-      
+
       {/* <h1>Hello {this.state.age}</h1> */}
       <div class = "ref_form">
           <h1>BOOKING REFERENCE NUMBER:</h1>
@@ -126,7 +126,7 @@ class Managebooking extends Component{
         <div class = "b1">
         <Button variant = "contained" onClick={this.handleFormData} endIcon = {<SendIcon/>} color = "primary"  size = "large">SUBMIT</Button>{' '}
         </div>
-        
+
         </div>
         </div>
         </div>
@@ -135,4 +135,3 @@ class Managebooking extends Component{
 }
 
 export default Managebooking;
-      

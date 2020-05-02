@@ -5,7 +5,6 @@ import {DropdownMultiple, Dropdown} from 'reactjs-dropdown-component';
 import "react-datepicker/dist/react-datepicker.css";
 import './App.css';
 import './Checkin.css';
-import MaterialUIForm from  'react-material-ui-form';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
@@ -64,12 +63,7 @@ class Checkin extends Component{
     }
     render(){
         console.log("entered")
-        //const classes = useStyles();
         return(
-            
-            
-//            <div>Welcome</div>
-            
     <div>
         <div class = "container">
       <h1 class = "t">Singapore Airlines</h1>
@@ -79,11 +73,11 @@ class Checkin extends Component{
         <li class = "ll"><a href="#contact">Contact</a></li>
         <li class = "ll"><a href="#about">About</a></li>
       </ul>
-      
+
     </div>
     <div class="wrapper">
       <div class="banner_body"><h1 class = "desc">Travel Seamlessly with the Singapore Air App</h1>
-        
+
         <div class = "another"></div>
       </div>
   <div class="banner_folds">
@@ -93,16 +87,16 @@ class Checkin extends Component{
         <ul class = "l1">
           <li class = "ls"><a href="/">BOOK TRIP</a></li>
           <li class= "ls"><a class = "active" href="#">CHECK IN</a></li>
-          <li class = "ls"><a href="#contact">MANAGE BOOKING</a></li>
+          <li class = "ls"><a href="Manage-Booking">MANAGE BOOKING</a></li>
           <li class = "ls"><a href="#about">FLIGHT SCHEDULE</a></li>
         </ul>
-       
+
       </div>
       </div>
       </div>
       <div class = "mystyle">
       <div class = "fr">
-      
+
       {/* <h1>Hello {this.state.age}</h1> */}
       <div class = "ref_form">
           <h1>BOOKING REFERENCE NUMBER:</h1>
@@ -120,10 +114,10 @@ class Checkin extends Component{
         <div class = "b1">
         <Button variant = "contained" onClick={this.handleFormData} endIcon = {<SendIcon/>} color = "primary"  size = "large">SUBMIT</Button>{' '}
         </div>
-      
-      
-      
-      
+
+
+
+
 
       {/* <form>
       <p class ="para">TO:</p>
@@ -136,7 +130,6 @@ class Checkin extends Component{
       <p class = "para">DEPART DATE:</p>
       <DatePicker titleHelper = "Location" title = "Select Departure Date" selected = {this.state.startDate} onChange = {this.handleChangeStart}/>
       </form>
-
       <form>
       <p class = "para">RETURN DATE:</p>
       <DatePicker titleHelper = "Location" title = "Select Return Date" selected = {this.state.endDate} onChange = {this.handleChangeEnd}/>
@@ -148,14 +141,13 @@ class Checkin extends Component{
       <p class = "para">CLASS:</p>
       <Dropdown titleHelper = "Location" title = "Select Class" list = {this.state.class} resetThenSet = {this.resetThenSetClass}/>
       </form>
-
       <form>
       <p class = "para">PASSENGERS:</p>
       <Dropdown titleHelper = "Location" title = "Select Number of Passengers" list = {this.state.pass} resetThenSet = {this.resetThenSetPass}/>
-      
+
       </form>
       </div> */}
-      </div> 
+      </div>
       </div>
       </div>
         )
