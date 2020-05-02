@@ -13,22 +13,22 @@ var app = express();
 */
 //var request = require('request');
 
-/*request.post(
-    "http://localhost:3001/api/flight",
-    { json:{source:'New York',dest:'San Francisco',travel_time:4}},
-    function(error,response,body){
-        if(!error && response.statusCode==200){
+// request.post(
+//     "http://localhost:3001/api/flight",
+//     { json:{source:'New York',dest:'San Francisco',travel_time:4}},
+//     function(error,response,body){
+//         if(!error && response.statusCode==200){
+//
+//             console.log(body)
+//
+//                 }}
+//             )
 
-            console.log(body)
-            
-                }}
-            )
-*/
-    
-    
 
-            
-    
+
+
+
+
 
 /*request.post(
     "http://localhost:3001/dogs",
