@@ -4,20 +4,13 @@ import './App.css';
 import {DropdownMultiple, Dropdown} from 'reactjs-dropdown-component';
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-//import { Button } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
 import DeleteIcon from '@material-ui/icons/Delete';
-//import {BrowserRouter as Router} from 'react-router-dom';
-//import axios from 'axios'
 import history from './history';
 import axios from 'axios'
-
-
-//import routes from './routes';
 import about from './about.js';
 import {Link} from 'react-router-dom';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
 const src = ' '
 const dst = ' '
@@ -48,15 +41,26 @@ class App extends React.Component {
           title:'San Francisco',
           selected:false,
           key:'location_start'
+        }
+        ,
+        {
+          id:2,
+          title:'chicago',
+          selected:false,
+          key:'location_start'
         },
-        
-          {
-            id:2,
-            title:'Chicago',
-            selected:false,
-            key:'location_end'
-          }
-        
+        {
+          id:3,
+          title:'Chennai',
+          selected:false,
+          key:'location_start'
+        },
+        {
+          id:4,
+          title:'Dallas',
+          selected:false,
+          key:'location_start'
+        }
       ],
       location_end:[
         {
@@ -73,7 +77,19 @@ class App extends React.Component {
         },
         {
           id:2,
-          title:'Chicago',
+          title:'LasVegas',
+          selected:false,
+          key:'location_end'
+        },
+        {
+          id:3,
+          title:'Kenya',
+          selected:false,
+          key:'location_end'
+        },
+        {
+          id:4,
+          title:'Texas',
           selected:false,
           key:'location_end'
         }
@@ -120,41 +136,17 @@ class App extends React.Component {
       ]
     };
   }
-  
+
   myChangeHandler = (event) => {
-    
-    /* let nam = event.target.name;
-    let val = event.target.value;
-    let err = '';
-    if (nam === "age") {
-      if (val !="" && !Number(val)) {
-        err = <strong>Your age must be a number</strong>;
-      }
-    }
-    this.setState({errormessage: err});
-    this.setState({[nam]: val}); */
     var input, filter, ul, li, a, i;
     input = document.getElementById("ip1");
     filter = input.value.toUpperCase();
-    /* div = document.getElementById("ip1");
-    a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-      txtValue = a[i].textContent || a[i].innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        a[i].style.display = "";
-      } else {
-        a[i].style.display = "none";
-      }
-  } */
   }
+
   handleRegistration = ()=>{
     history.push('/registration')
   }
   valid = (src,dst,st_dt,en_dt,cl,ps)=>{
-    // if(!src){
-    //   return false;
-    
-    // }
     if(src!=' ' &&dst!=' '&&src!=dst&&new Date(st_dt)!=new Date(en_dt) && new Date(st_dt)<new Date(en_dt)&& cl!=' '&&ps!=' '){
       return true;
     }
@@ -162,25 +154,23 @@ class App extends React.Component {
     else
     return false;
   }
+
   handleFormData = ()=>{
-    //this.setState({source:s})
-    //this.setState({dest:d})
     console.log("Source:"+this.state.source)
     console.log("Dest:"+this.state.dest)
     console.log("Start Date:"+this.state.startDate)
     console.log("End Date:"+this.state.endDate)
     console.log("Class:"+this.state.cls)
     console.log("Passengers:"+this.state.pas)
-
     if(this.valid(this.state.source,this.state.dest,this.state.startDate,this.state.endDate,this.state.cls,this.state.pas)){
-    //src = this.state.source
-    //dst = this.state.dest
     const data = {
       source: this.state.source,
       dest: this.state.dest,
-      travel_time:4,
+      status:this.state.cls,
+      passengers:this.state.pas,
     }
-    
+
+
     axios.post("http://localhost:3001/api/flight",data)
     .then(data=>{
       console.log(data)
@@ -189,23 +179,20 @@ class App extends React.Component {
       console.log(error.response)
     })
     history.push('/api/flight')
-    //console.log("Dest:"+this.state.dest)
   }
   else{
-    alert("Please enter the required data to start looking for flights")
-  }
-  }
+  alert("Please enter the required data to start looking for flights")
+}
+}
   handleChangeStart = date =>{
     this.setState({
       startDate:date
     });
-    //const value = date.format();
   }
   handleChangeEnd = date =>{
     this.setState({
       endDate:date
     });
-    //const value = date.format();
   }
 
   resetThenSetStart = (id,key) =>{
@@ -216,15 +203,13 @@ class App extends React.Component {
       [key]: temp
 
     })
-    
+
     var val = this.state.location_start.filter(function(item){
       return item.title === temp[id].title
     })
-    //temp[id].title =val[0].title
-    //console.log(val)
     this.setState({source:val[0].title})
-    
-   
+
+
   }
   resetThenSetEnd = (id,key) =>{
     let temp = JSON.parse(JSON.stringify(this.state[key]))
@@ -234,15 +219,13 @@ class App extends React.Component {
       [key]: temp
 
     })
-    
+
     var val = this.state.location_end.filter(function(item){
       return item.title === temp[id].title
     })
-    //temp[id].title =val[0].title
-    //console.log(val)
     this.setState({dest:val[0].title})
-    
-   
+
+
   }
   resetThenSetClass = (id,key) =>{
     let temp = JSON.parse(JSON.stringify(this.state[key]))
@@ -252,15 +235,13 @@ class App extends React.Component {
       [key]: temp
 
     })
-    
+
     var val = this.state.class.filter(function(item){
       return item.title === temp[id].title
     })
-    //temp[id].title =val[0].title
-    //console.log(val)
     this.setState({cls:val[0].title})
-    
-   
+
+
   }
   resetThenSetPass = (id,key) =>{
     let temp = JSON.parse(JSON.stringify(this.state[key]))
@@ -270,36 +251,34 @@ class App extends React.Component {
       [key]: temp
 
     })
-    
+
     var val = this.state.pass.filter(function(item){
       return item.title === temp[id].title
     })
-    //temp[id].title =val[0].title
-    //console.log(val)
     this.setState({pas:val[0].title})
-    
-   
+
+
   }
-  
+
   render() {
-    
+
     return (
-     
-      
+
+
       <div>
         <div class = "container">
-      <h1 class = "t">Singapore Airlines</h1>
+      <h1 class = "t">FLIGHT RIDER</h1>
       <ul class= "u">
-        <li class = "ll"><a class="active" href="#home">Home</a></li>
-        <li class = "ll"><a href="#news">News</a></li>
-        <li class = "ll"><a href="#contact">Contact</a></li>
-        <li class = "ll"><a href="#about">About</a></li>
+        <li class = "ll"><a class="active" href="/">Home</a></li>
+        <li class = "ll"><a href="/news">News</a></li>
+        <li class = "ll"><a href="/contact">Contact</a></li>
+        <li class = "ll"><a href="/about">About</a></li>
       </ul>
-      
+
     </div>
     <div class="wrapper">
-      <div class="banner_body"><h1 class = "desc">Travel Seamlessly with the Singapore Air App</h1>
-        
+      <div class="banner_body"><h1 class = "desc">Travel Seamlessly with the Flight Rider App</h1>
+
         <div class = "another"></div>
       </div>
   <div class="banner_folds">
@@ -312,7 +291,7 @@ class App extends React.Component {
           <li class = "ls"><a href="Manage-Booking">MANAGE BOOKING</a></li>
           <li class = "ls"><a href="#about">FLIGHT SCHEDULE</a></li>
         </ul>
-       
+
       </div>
       </div>
     <div class = "mystyle">
@@ -321,8 +300,8 @@ class App extends React.Component {
       <h1>Hello {this.state.username} {this.state.age}</h1>
       <p class = "para">FROM:</p>
       <Dropdown titleHelper = "Location" title = "Select Source" list = {this.state.location_start} resetThenSet = {this.resetThenSetStart}/>
-      
-      
+
+
       </form>
 
       <form>
@@ -352,35 +331,28 @@ class App extends React.Component {
       <form>
       <p class = "para">PASSENGERS:</p>
       <Dropdown titleHelper = "Location" title = "Select Number of Passengers" list = {this.state.pass} resetThenSet = {this.resetThenSetPass}/>
-      
+
       </form>
       </div>
       </div>
       <div class = "b1">
-      
-      
+
+
       <Button variant = "contained" onClick={this.handleFormData} endIcon = {<SendIcon/>} color = "primary"  size = "large">SUBMIT</Button>{' '}
-      
+
       </div>
       <div class = "b2">
       <Button  variant = "contained" color = "secondary" endIcon = {<DeleteIcon/>} size = "large">RESET</Button>{' '}
       </div>
       <div class = "top">
-        <Button variant = "contained" onClick = {this.handleRegistration} color = "primary" size = "large" endIcon = {<SendIcon/>}>REGISTER</Button>
+              <Button variant = "contained" onClick = {this.handleRegistration} color = "primary" size = "large" endIcon = {<SendIcon/>}>REGISTER</Button>
+            </div>
+
+      </div>
       </div>
 
-
-      
-      </div>
-      </div>
-      
     );
   }
-  
+
 }
-
-
-
-//ReactDOM.render(<MyForm />, document.getElementById('root'));
 export default App;
-//onClick={() => history.push('/api/flightinsert')}
