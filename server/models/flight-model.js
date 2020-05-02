@@ -10,5 +10,8 @@ const flight = new Schema({
 {timestamps:true},
 
 )
+
+
+
 mod = mongoose.model('flights',flight)
 module.exports = mod
